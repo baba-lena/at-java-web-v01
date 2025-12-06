@@ -1,0 +1,8 @@
+import org.junit.jupiter.api.Test;
+import static com.codeborne.selenide.Selenide.open;
+public class OpenPageTests {
+    @Test
+    void openWebSite() {
+        open("https://ya.ru");
+    }
+}
