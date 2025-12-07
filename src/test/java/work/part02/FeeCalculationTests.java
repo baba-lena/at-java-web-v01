@@ -12,9 +12,9 @@ public class FeeCalculationTests {
     @Test
     public void test01() {
         open("https://slqamsk.github.io/demo/search-demo/");
-        //$(By.name("sum")).sendKeys("ТЕКСТ");
-        //sleep(10000);
-      //  $(By.name("sum")).sendKeys("НОВЫЙ ТЕКСТ");
+       // $(By.name("sum")).sendKeys("ТЕКСТ");
+        sleep(10000);
+        $(By.name("sum")).sendKeys("НОВЫЙ ТЕКСТ");
         $(By.name("cancel_btn")).click();
         sleep(10000);
     }
