@@ -17,7 +17,7 @@ public class AuthorizationTests {
          $(By.id("loginButton")).click();
          $(By.id("flightForm")).shouldBe(visible);
      }
-
+    @Test
     public void test02LoginWrongPassword()
 
     {
