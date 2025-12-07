@@ -13,12 +13,10 @@ public class AuthorizationTests {
      {
         open("https://slqamsk.github.io/cases/slflights/v01/");
         $(By.className("input-group")).shouldBe(visible);
-        $(By.tagName("username")).sendKeys("standard_user");
-        $(By.tagName("password")).sendKeys("stand_pass1");
+        $(By.id("username")).sendKeys("standard_user");
+        $(By.id("password")).sendKeys("stand_pass1");
          $(By.id("loginButton")).click();
          sleep(10000);
-
-
     }
 }
 
