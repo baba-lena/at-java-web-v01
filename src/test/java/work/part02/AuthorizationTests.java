@@ -14,12 +14,11 @@ public class AuthorizationTests {
         open("https://slqamsk.github.io/cases/slflights/v01/");
         $(By.id("username")).sendKeys("standard_user");
         $(By.id("password")).sendKeys("stand_pass1");
-         $(By.id("loginButton")).click();
-         $(By.id("flightForm")).shouldBe(visible);
+        $(By.id("loginButton")).click();
+        $(By.id("flightForm")).shouldBe(visible);
      }
     @Test
     public void test02LoginWrongPassword()
-
     {
         open("https://slqamsk.github.io/cases/slflights/v01/");
         $(By.id("username")).sendKeys("standard_user");
