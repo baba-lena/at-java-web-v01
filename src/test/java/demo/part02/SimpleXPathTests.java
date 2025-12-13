@@ -1,5 +1,6 @@
 package demo.part02;
 
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
@@ -17,7 +18,7 @@ public class SimpleXPathTests {
 
 // 07.12.2025. Homework_Module_2
     @Test
-    void testSearchContains()
+    void testSearchContains_Selenide()
         {
             open ("https://slqa.ru/cases/xPathSimpleForm/");
             $(By.className("not_unique_class")).shouldHave(text("Москва"));
@@ -26,9 +27,8 @@ public class SimpleXPathTests {
     void testSearch_Contains_XPath()
         {
             open ("https://slqa.ru/cases/xPathSimpleForm/");
-            $x("//p[contains(text(),'Питер'");
+            $x("//*[contains(text(),'Питер')]").shouldHave(text("180 единиц"));
         }
-
     @Test
     void testSearch_Starts_with_XPath()
         {
