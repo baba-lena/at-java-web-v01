@@ -7,7 +7,8 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SimpleXPathTests {
+public class SimpleXPathTests
+{
 // 07.12.2025. Practice_Module_2
     @Test
     void testSpecialParagraph()
