@@ -39,7 +39,7 @@ public class SimpleXPathTests {
 // 14.12.2025 Module 3
     @Test
     void testXPathPizza()
-    {
+         {
             open("https://slqamsk.github.io/cases/pizza/v08/");
             SelenideElement se1 = $x("//h3[.='Маргарита']");
             System.out.println("Элемент с названием пиццы: тег: " + se1.getTagName() + ", текст: " + se1.text());
@@ -47,6 +47,6 @@ public class SimpleXPathTests {
             System.out.println("Его родитель: тег: " + se2.getTagName() + ", текст: " + se2.text());
             SelenideElement se3 = $x("//h3[.='Маргарита']/../button");
             System.out.println("Кнопка: тег: " + se3.getTagName() + ", текст: " + se3.text());
-    }
+         }
 
 }
