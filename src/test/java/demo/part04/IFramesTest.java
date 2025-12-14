@@ -2,6 +2,8 @@ package demo.part04;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
@@ -30,5 +32,16 @@ public class IFramesTest
             $x("//a[text()='Home']").click();
             sleep(10_000);
         }
-
+        @Test
+        void test02IFrame() {
+            Configuration.pageLoadStrategy = "eager";
+            open("https://demoqa.com/frames");
+            sleep(3000);
+            getWebDriver().manage().window().maximize();
+            switchTo().frame($x("//iframe[@id='frame1']"));
+            $("#sampleHeading").shouldHave(text("This is a sample page"));
+            switchTo().defaultContent();
+            $x("//header/a").click();
+            sleep(3000);
+    }
 }

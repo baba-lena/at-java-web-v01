@@ -1,3 +1,5 @@
+package demo.part02;
+
 import org.junit.jupiter.api.Test;
 import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Selenide.open;
