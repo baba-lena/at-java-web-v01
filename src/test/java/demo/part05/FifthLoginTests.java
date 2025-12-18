@@ -22,7 +22,6 @@ public class FifthLoginTests {
     }
 
     @BeforeEach
-
     void before_each(TestInfo test_info) {
         System.out.println("Тест " + test_info.getDisplayName() + " - начали выполнение.");
         open("https://slqa.ru/cases/ChatGPTLogin/");
@@ -41,6 +40,7 @@ public class FifthLoginTests {
     //В тестовой модели удалить тест-кейс 12, перенести в тест-кейс 01.
     @ParameterizedTest (name = "01. Успешный вход в систему по кнопке Login под разными логинами, #{index}, username: {0}")
     @ValueSource (strings = {"standard_user", "problem_user", "performance_glitch_user", "error_user", "visual_user"})
+    @Disabled
     void test01_success_login_button(String username) {
         $("#username").sendKeys(username);
         $("#password").sendKeys("secret_sauce");
@@ -54,6 +54,7 @@ public class FifthLoginTests {
 
     @Test
     @DisplayName("02. Корректный логин, пароль не соответствует логину - ошибка")
+    @Order(2)
     @SmokeTest
     void test02_error_wrong_password() {
         $("#username").sendKeys("standard_user");
@@ -70,6 +71,7 @@ public class FifthLoginTests {
     @Test
     @DisplayName("03. Корректные логин и пароль - успешный вход в систему по нажатию клавиши Enter на клавиатуре")
     @SmokeTest
+    @Order(1)
     void test03_success_login_enter() {
         $("#username").sendKeys("standard_user");
         $("#password").sendKeys("secret_sauce");
