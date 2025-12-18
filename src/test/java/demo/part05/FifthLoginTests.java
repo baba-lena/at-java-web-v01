@@ -55,7 +55,7 @@ public class FifthLoginTests {
     @Test
     @DisplayName("02. Корректный логин, пароль не соответствует логину - ошибка")
     @Order(2)
-    @SmokeTest
+    @Tag("SmokeTest")
     void test02_error_wrong_password() {
         $("#username").sendKeys("standard_user");
         $("#password").sendKeys("wrong_password");
@@ -70,7 +70,7 @@ public class FifthLoginTests {
 
     @Test
     @DisplayName("03. Корректные логин и пароль - успешный вход в систему по нажатию клавиши Enter на клавиатуре")
-    @SmokeTest
+    @Tag("SmokeTest")
     @Order(1)
     void test03_success_login_enter() {
         $("#username").sendKeys("standard_user");
@@ -86,7 +86,7 @@ public class FifthLoginTests {
 
     @Test
     @DisplayName("04. Выход из системы")
-    @SmokeTest
+    @Tag("SmokeTest")
     void test04_logout_success() {
         $("#username").sendKeys("standard_user");
         $("#password").sendKeys("secret_sauce");
@@ -170,7 +170,7 @@ public class FifthLoginTests {
 
     @Test
     @DisplayName("10. Пустые логин и пароль")
-    @SmokeTest
+    @Tag("SmokeTest")
     void test10_error_empty_login_and_password() {
         $("#loginButton").click();
         $("#message").shouldHave(text("Username and Password are required."));
