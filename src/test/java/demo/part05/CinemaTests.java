@@ -4,7 +4,12 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -45,7 +50,25 @@ public class CinemaTests
     }
 
 
-
+    @ParameterizedTest
+    @MethodSource("provideCinemaData")
+    void test03_simple_cinema (int age, String dateValue, String start, String film, String priceMessage)
+    {
+        open(url);
+        $("input[name=age]").setValue(String.valueOf(age));
+        $("input[name='date']").setValue(dateValue);
+        $("input[name=session][value='" + start + "']").click();
+        $("input[name=film][value='" + film  + "']").click();
+        $("input[type=submit").click();
+        $("div").shouldHave(text(priceMessage));
+    }
+    static Stream<Arguments> provideCinemaData() {
+        Stream.Builder<Arguments> argumentsBuilder = Stream.builder();
+        argumentsBuilder.add(Arguments.of("35", "21-12-2025", "1", "back",  "Стоимость билета: 450 рублей."));
+        argumentsBuilder.add(Arguments.of("20", "22-12-2025", "2", "crime", "Стоимость билета: 350 рублей."));
+        argumentsBuilder.add(Arguments.of("5",  "23-12-2025", "3", "king",  "Стоимость билета: 100 рублей."));
+        return argumentsBuilder.build();
+    }
 
 
 
