@@ -28,12 +28,12 @@ public class CinemaTests
    {
        open(url);
        $("input[name=age]").setValue("39");
-       String dateValue = "20-12-2025";
+       String dateValue = "26-12-2025";
        $("input[name='date']").setValue(dateValue);
        $x("//input[@name='session' and @value='8']").click();
        $x("//input[@name='film' and @value='crime']").click();
        $("input[type=submit").click();
-       $("div").shouldHave(text("Стоимость билета: 500 рублей."));
+       $("div").shouldHave(text("Стоимость билета: 400 рублей."));
    }
 
     @ParameterizedTest
