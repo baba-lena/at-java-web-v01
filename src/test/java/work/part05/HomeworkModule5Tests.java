@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class HomeworkModule5Tests {
     private final String url1 = "http://92.51.36.108:7777/sl.qa/cinema/index.php"; //кино
-    private final String url2 = "https://www.aviasales.ru/"; // авиа
+    private final String url2 = "https://www.aviasales.ru"; // авиа
 
     @BeforeEach
     void setUp() {
@@ -93,7 +93,5 @@ public class HomeworkModule5Tests {
         $("input[type=submit").click();
         $("div").shouldBe(visible);
     }
-
-
 
 }
