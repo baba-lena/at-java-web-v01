@@ -12,24 +12,23 @@ import static com.codeborne.selenide.Selenide.$x;
 public class AviaSearchTest {
 
 
-        private final String url = "https://slqamsk.github.io/cases/slflights/v01/";
+     private final String url = "https://slqamsk.github.io/cases/slflights/v01/";
 
-        @BeforeEach
-        void setUp()
-        {
-            Configuration.browser = "chrome";
-        }
+     @BeforeEach
+     void setUp()
+     {
+        Configuration.browser = "chrome";
+     }
 
-        @Test
-        void test01 ()
-        {
-            open(url);
-
-            $("#username").setValue("standard_user");
-            $("#password").setValue("stand_pass");
-            $("#loginButton").click();
-            $("#message").shouldHave(text("Неверное имя пользователя или пароль."));
-        }
+     @Test
+     void test01 ()
+     {
+        open(url);
+         $("#username").setValue("standard_user");
+         $("#password").setValue("stand_pass");
+         $("#loginButton").click();
+         $("#message").shouldHave(text("Неверное имя пользователя или пароль."));
+     }
     @Test
     void test02 ()
     {
