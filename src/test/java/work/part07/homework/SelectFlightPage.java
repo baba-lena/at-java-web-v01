@@ -22,46 +22,45 @@ public class SelectFlightPage
         departMonth = $("#departMonth"),
         returnDay =$("#returnDay"),
         returnMonth =$("#returnMonth"),
-        //timeFlight = ????
-        submit = $("#sumbit");
+        timeFlight = $x ("//tr[./td[contains(text(),':')]]//input[@type='checkbox']"),
+        submit = $("input[value='Continue']");
 
-    public void SelectFlightPage (String fromPort, String toPort, String departDay, String departMonth)
-    {
-        this.from.selectOption(fromPort);
-        this.to.selectOption(toPort);
-        this.departDay.selectOption(departDay);
-        this.departMonth.selectOption(departMonth);
-    }
 
-    public void SelectFlightPage(String fromPort,
-                                 String toPort,
-                                 String departDay,
-                                 String departMonth,
-                                 String returnDay,
-                                 String returnMonth,
-                                 String timeFlight)
+
+
+    @Step("Round Trip")
+    public void selectFlightRoundTrip(String fromPort,
+                                      String toPort,
+                                      String departDay,
+                                      String departMonth,
+                                      String returnDay,
+                                      String returnMonth,
+                                      String timeFlight)
     {
+        this.roundTrip.click();
         this.from.selectOption(fromPort);
         this.to.selectOption(toPort);
         this.departDay.selectOption(departDay);
         this.departMonth.selectOption(departMonth);
         this.returnDay.selectOption(returnDay);
         this.returnMonth.selectOption(returnMonth);
-        //this.timeFlight.selectOption(timeFlight);
-    }
-
-
-    @Step("Round Trip")
-    public void selectFlightRoundTrip()
-    {
-        this.roundTrip.click();
+        this.timeFlight.click();
         this.submit.click();
     }
 
     @Step("One Way Ticket")
-    public void selectFlightOneWay()
+    public void selectFlightOneWay(String fromPort,
+                                   String toPort,
+                                   String departDay,
+                                   String departMonth,
+                                   String timeFlight)
     {
         this.onewayTrip.click();
+        this.from.selectOption(fromPort);
+        this.to.selectOption(toPort);
+        this.departDay.selectOption(departDay);
+        this.departMonth.selectOption(departMonth);
+        this.timeFlight.click();
         this.submit.click();
     }
 

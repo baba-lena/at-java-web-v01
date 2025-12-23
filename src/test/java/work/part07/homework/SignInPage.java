@@ -6,7 +6,6 @@ import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 

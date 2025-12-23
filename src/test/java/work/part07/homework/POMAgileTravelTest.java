@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @TestMethodOrder(MethodOrderer.DisplayName.class)
@@ -23,14 +22,14 @@ public class POMAgileTravelTest {
     SignInPage sp = new SignInPage();
 
     @Test @Order(1)
-    void test02LoginFailed()
+    void test01LoginFailed()
     {
         sp.login("", "");
         sp.isLoginFailed();
     }
 
     @Test @Order(2)
-    void test01LoginSuccessfull()
+    void test02LoginSuccessfull()
     {
         sp.login("agileway", "test$W1se");
         sp.isLoginSuccessful();
@@ -43,11 +42,15 @@ public class POMAgileTravelTest {
     {
         sp.login("agileway", "test$W1se");
         sp.isLoginSuccessful();
-        sf.SelectFlightPage("New York", "Sydney", "30", "July 2025", "10", "October 2025","8:30");
-        sf.selectFlightRoundTrip();
-        sleep(20000);
+        sf.selectFlightRoundTrip("New York", "Sydney", "30", "July 2025", "10", "October 2025","08:00");
     }
 
-
+    @Test @Order(4)
+    void test04SelectFlightOneWay()
+    {
+        sp.login("agileway", "test$W1se");
+        sp.isLoginSuccessful();
+        sf.selectFlightOneWay("New York", "Sydney", "30", "July 2025", "08:30");
+    }
 
 }
