@@ -2,11 +2,6 @@ package work.part07.homework;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.jspecify.annotations.Nullable;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -24,6 +19,7 @@ public class SelectFlightPage
         returnMonth =$("#returnMonth"),
         timeFlight = $x ("//tr[./td[contains(text(),':')]]//input[@type='checkbox']"),
         submit = $("input[value='Continue']");
+
 
 
 

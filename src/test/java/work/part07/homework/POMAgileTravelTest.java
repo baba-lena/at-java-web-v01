@@ -20,7 +20,6 @@ public class POMAgileTravelTest {
     }
 
     SignInPage sp = new SignInPage();
-
     @Test @Order(1)
     void test01LoginFailed()
     {
@@ -35,22 +34,35 @@ public class POMAgileTravelTest {
         sp.isLoginSuccessful();
     }
 
-
     SelectFlightPage sf = new SelectFlightPage ();
     @Test @Order(3)
     void test03SelectFlightRoundTrip()
     {
-        sp.login("agileway", "test$W1se");
-        sp.isLoginSuccessful();
+        test02LoginSuccessfull();
         sf.selectFlightRoundTrip("New York", "Sydney", "30", "July 2025", "10", "October 2025","08:00");
     }
 
     @Test @Order(4)
     void test04SelectFlightOneWay()
     {
-        sp.login("agileway", "test$W1se");
-        sp.isLoginSuccessful();
+        test02LoginSuccessfull();
         sf.selectFlightOneWay("New York", "Sydney", "30", "July 2025", "08:30");
+    }
+
+    PassDetailsPage pd = new PassDetailsPage();
+    @Test @Order(5)
+    void test05PassDetails()
+    {
+        test04SelectFlightOneWay();
+        pd.passDetails("Josef", "Stalin");
+    }
+
+    PaymentPage pp = new PaymentPage();
+    @Test @Order(6)
+    void test06PassDetails()
+    {
+        test05PassDetails();;
+        pp.payByCreditCard("Niki Khruschev", "1953", "07", "2027");
     }
 
 }
